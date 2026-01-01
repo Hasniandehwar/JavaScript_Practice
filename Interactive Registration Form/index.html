@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registraion Form</title>
+    <style>
+        @media (max-width : 786px) {
+                body{
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .main{
+                    margin-top: 250px;
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 3px 1px 10px  rgb(16, 17, 16);
+                    text-align: center;
+                }
+                .main_heading{
+                        font-size: larger;
+                        color: green;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+
+                }
+                .Form_Div{
+
+                    padding: 5px;
+                    margin: 3px;
+                
+                }
+                .input_fileds_Div{
+                    margin: 20px;
+                    display: flex;
+                    flex-direction: column;
+
+                }
+                .Input_Filed{
+                    margin: 20px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+
+                input{
+                    border-top: 3px solid red;
+                    border-radius: 5px;
+                    text-align: center;
+                    border-left: transparent;
+                    border-right: transparent;
+                    border-bottom: transparent;
+                }
+                .Password_tips{
+                    margin: 10px;
+                    padding: 5px;
+                    width: 100%;
+                }
+                .Password_tips :first-child{
+                    padding: 3px;
+                    
+                }
+                ul li{
+                    margin: 1px;
+                    text-align: left;
+                    color: rgb(94, 91, 91);
+                }
+                .Btn{
+                    background-color: rgba(28, 95, 22, 0.55);
+                    color: white;
+                    border: transparent;
+                    padding: 3px 10px;
+                    cursor: pointer;
+                    border-radius: 3px;
+
+                }
+                .L{
+                    background-color: red;
+                    border-radius: 3px;
+                }
+                .name{
+                    font-size: 12px;
+                    color: red;
+                    margin-top: 10px;
+                }
+
+                .pass{
+                    
+                    font-size: 12px;
+                    color: red;
+                    margin-top: 5px;
+                }
+        }
+
+        body{
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .main{
+                    margin-top: 250px;
+                    background-color: white;
+                    padding: 20px;
+                    border-radius: 5px;
+                    box-shadow: 3px 1px 10px  rgb(16, 17, 16);
+                    text-align: center;
+                }
+                .main_heading{
+                        font-size: larger;
+                        color: green;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+
+                }
+                .Form_Div{
+
+                    padding: 5px;
+                    margin: 3px;
+                
+                }
+                .input_fileds_Div{
+                    margin: 20px;
+                    display: flex;
+                    flex-direction: column;
+
+                }
+                .Input_Filed{
+                    margin: 20px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+
+                input{
+                    border-top: 3px solid red;
+                    border-radius: 5px;
+                    text-align: center;
+                    border-left: transparent;
+                    border-right: transparent;
+                    border-bottom: transparent;
+                }
+                .Password_tips{
+                    margin: 10px;
+                    padding: 5px;
+                    width: 100%;
+                }
+                .Password_tips :first-child{
+                    padding: 3px;
+                    
+                }
+                ul li{
+                    margin: 1px;
+                    text-align: left;
+                    color: rgb(94, 91, 91);
+                }
+                .Btn{
+                    background-color: rgba(28, 95, 22, 0.55);
+                    color: white;
+                    border: transparent;
+                    padding: 3px 10px;
+                    cursor: pointer;
+                    border-radius: 3px;
+
+                }
+                .L{
+                    background-color: red;
+                    border-radius: 3px;
+                }
+                .name{
+                    font-size: 12px;
+                    color: red;
+                    margin-top: 10px;
+                }
+
+                .pass{
+                    
+                    font-size: 12px;
+                    color: red;
+                    margin-top: 5px;
+                }
+    </style>
+</head>
+<body>
+    <main class="main">
+        <h1 class="main_heading">Registration</h1>
+        <div class="Form_Div">
+            <form action="">
+                <div class="input_fileds_Div">
+                    <input type="text" name="User_name" id="UName" placeholder="User name">
+                    <small class="name"></small>
+                </div>
+                <div class="Input_Filed">
+                    <input type="password" name="password" id="password" placeholder="Password">
+                    <small class="pass"></small>
+                </div>
+                <button type="submit" class="Btn">Register</button>
+                <div class="Password_tips">
+                        <ul>
+                            <li>Password must contain 8 letters.</li>
+                            <li>At least 1 uppercase character. </li>
+                        </ul>
+                </div>
+            </form>
+        </div>
+        <div class="">
+            <button type="button" class="Btn L" onclick="">Login</button>
+        </div>
+    </main>
+    
+
+    <script>
+       let input = document.querySelector("input");
+    let form = document.querySelector("form");
+    let small = document.querySelector(".name");
+
+
+let timer;
+
+input.addEventListener("input", function () {
+  const regexname = /^[A-Za-z]{2,}$/;
+
+  clearTimeout(timer);
+  small.textContent = ""; // reset message
+
+  if (!regexname.test(input.value)) {
+    timer = setTimeout(() => {
+      small.textContent = "Please choose a valid username";
+
+      // hide message after 3 seconds
+      setTimeout(() => {
+        small.textContent = "";
+      }, 3000);
+
+    }, 3000);
+    }
+    });
+    </script>
+</body>
+</html>

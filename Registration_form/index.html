@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <h1 class="Heading">Registration Form</h1>
+    <div class="Form">
+        <form action="">
+            <div class="Input_field">
+                <input type="text" name="name" id="Name" placeholder="Name" class="inp">
+                <span class="Error"></span>
+                <input type="text" name="father" id="father" placeholder="Father Name" class="inp">
+                <span class="Error_F"></span>
+            </div>
+            <button type="submit" class="BTN" disabled>Submit</button>
+        </form>
+
+        <div class="Input_field">   
+            <h1>Information</h1>
+            <input type="text" name="Name" id="Name" placeholder="Name" readonly class="inpur input">
+            <input type="text" name="father" id="father" placeholder="Father Name" readonly class="inpuf input">
+
+        </div>
+
+    </div>
+
+    <script>
+        let input=document.querySelectorAll(".inp");
+        const regexname= /^[A-Za-z]{2,}$/;
+        let form=document.querySelector("form")
+        let btn=document.querySelector(".BTN")
+        let span=document.querySelector(".Error");
+        let span1=document.querySelector(".Error_F");
+        //  btn.setAttribute("","disabled")
+        form.addEventListener('input', function(dets){
+            let name=input[0].value;
+            let Fname=input[1].value;
+
+        if (regexname.test(name) && regexname.test(Fname)){
+                btn.removeAttribute("disabled");
+        }
+            
+        })
+
+        
+        form.addEventListener("submit" , function(req){
+            req.preventDefault();
+            let nam=req.target[0].value;
+            let fnam=req.target[1].value;
+            document.querySelector(".inpur").setAttribute("placeholder" , `${nam}`);
+            document.querySelector(".inpuf").setAttribute("placeholder" , `${fnam}`)
+
+
+            // if (!regexname.test(nam)){
+            //     span.textContent="Enter Correct Name";
+            
+            // }else if (!regexname.test(Fnam)){
+            //     span1.textContent="Enter Correct father Name:"
+
+            // }
+                    })
+
+
+        // if (input[0].value.length===0 &&input[1].value.length===0){
+           
+        // }
+    </script>
+</body>
+</html>

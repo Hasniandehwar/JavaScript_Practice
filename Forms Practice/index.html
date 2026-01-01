@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Admission Form</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header class="header_form">
+        <div class="Logo">
+            <h2 class="Logo_itself">School Name</h2>
+        </div>
+    </header>
+    <main>
+        <div class="div_1">
+            <div class="div li"></div>
+            <div class="div"></div>
+            <div class="div"></div>
+        </div>
+        <aside class="aside">
+            <nav class="nav">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us </li>
+                </ul>
+            </nav> 
+        </aside>
+
+        <section class="form_Section">
+                <form action="">
+                    <fieldset>
+                        <legend>Admission Form</legend>
+                        <div class="Input_Div">
+                            <label for="Name" class="Label">First Name:</label>
+                            <input type="text" name="Name" id="Name" placeholder="First Name" class="inp" >
+                            <label for="Last_Name" class="Label">Last Name</label>
+                            <input type="text" name="Last_Name" id="Last_Name" placeholder="Last_Name" class="inp">
+                            <label for="CNIC"> CNIC/B.Form</label>
+                            <input type="text" name="CNIC" id="CNIC" class="inp" placeholder="CNIC/B.from">
+                        </div>
+                        <div class="Input_Div div2">
+                            <label for="class">Choose Class:</label>
+                            <Select id="class" class="inp op" name="Class">
+                                <option value="" selected disabled >Classes</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                            </Select>
+
+                            <label for="FName" class="Label">Father Name</label>
+                            <input type="text" name="Father_Name" id="Fname" placeholder="Fahter Name" class="inp">
+                            <input type="file" style="display: none;" class="pic inp">
+                            <span class="Btn">
+                                Upload Pict
+                            </span>  
+                        </div>               
+                    </fieldset>
+                    <button type="submit" name="submibtn" id="submitbtn">Submit</button>
+                </form>
+                
+        </section>     
+        
+        <div class="Form_print">
+            <div class="Upper">
+               <h2>Hasnian</h2> 
+               <div class="Image">
+                <img src="style/src/1765696572565.JPG" alt="Pic">
+               </div>
+            </div>
+
+            <div class="lower">
+                <div class="Lower_1">
+                <h3>Full Name</h3>
+                <h3>Cnic</h3>
+                </div>
+                <div class="Lower_2">
+                <h3>Father Name</h3>
+                <h3>Class Applied for</h3>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+
+
+
+    <script src="Script.js"></script>
+</body>
+</html>

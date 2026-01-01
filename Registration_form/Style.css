@@ -1,0 +1,108 @@
+
+body{
+    background-color: rgb(41, 113, 53);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.Heading{
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+
+}
+
+.Form{
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 3px 3px 10px white;
+
+}
+
+.Input_field{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    
+}
+.inp{
+    width: 75%;
+    border-radius: 5px;
+    border: transparent;
+    border-top:3px solid red;
+    text-align: center;
+
+}
+.Error{
+    font-size: medium;
+    margin: 3px;
+    padding: 2px;
+    color: red;
+
+}
+.BTN{
+    text-align: center;
+    margin-left:10px;
+    padding: 5px 10px;
+    border-radius:5px;
+    border: transparent;
+    cursor: pointer;
+
+}
+
+.input{
+    margin: 3px;
+    width: 75%;
+    text-align: center;
+    border-radius: 5px;
+    border: transparent;
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    
+}
+.Input_field h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: large;
+}
+.i{
+    border-top:3px solid greenyellow;
+}
+@media (max-width:786px) {
+
+    .input{
+    font-size: 20px;
+}
+      .Heading{
+        text-align: center;
+        font-size: large;
+        
+    }
+    .Form{
+    width: 75%;
+
+}
+.inp{
+    width: 100%;
+}
+.Error{
+    font-size: medium;
+    margin: 3px;
+    padding: 2px;
+    color: red;
+
+}
+
+.Input_field h1{
+    font-size: large;
+}
+}
