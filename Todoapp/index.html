@@ -8,7 +8,7 @@
         body{
             display: flex;
             justify-content: center;
-            background-color: rgb(83, 81, 81);
+            background-color: rgb(116, 105, 237);
             flex-direction: column;
         }
         header{
@@ -17,8 +17,13 @@
             text-align: center;
             border-radius: 5px;
             box-shadow: 3px 3px 15px  white;
+            width: 70vw;
 
 
+        }
+        .Header_Div{
+            display: flex;
+            justify-content: center;
         }
         header h1{
             font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -27,28 +32,131 @@
             color: white;
 
         }
+        .main{
+            border: 2px solid black;
+            box-shadow: 3px 3px 15px  black;
+            height: fit-content;
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-left: 200px;
+            width: 73vw;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .From{
+            width: 70%;
+            margin-left:40px;
+            padding: 15px;
+            text-align: center;
+            height: fit-content;
+        }
+        input{
+            width: 30%;
+            border: transparent;
+            border-radius: 3px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        form input:focus{
+            outline: none;
+            border: 1px solid green;
 
-        @media (max-width:786) {
-        header{
+        }
+        form input[type="text"]::placeholder{
+            color: blue;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        form .BTN{
+            margin: 4px;
+            padding: 5px;
+            
+        }
+        form .BTN button{
             padding: 5px 10px;
             border-radius: 5px;
-           
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+        form .BTN button[type="submit"]:hover{
+            background-color: green;
+            color: white;
+
+        }
+        form .BTN button[type="reset"]{
+            background-color: red;
+            color: white;
+            border: 2px solid darkred;
+            margin-left: 5px;
+        }
+        form .BTN button[type="reset"]:active{
+            transform: scale(0.9);
+            color: white;
+            transition: 0.3s ease-in-out;
+
+        }
+        @media (max-width:786px) {
+        header{
+            padding: 5px 10px;
+            border-radius: 5; 
         }
         header h1{
             letter-spacing: 1px;
         }
+        .main{
+            width: 70vw;
+            margin-left: auto;
+            margin-right: auto;
+            height: fit-content;
+            
+
+        }
+        .From{
+            margin-left:20px;
+            padding: 10px;
+            height: fit-content;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+
+        }
+        input{
+            width: 100%;
+            border: transparent;
+            border-radius: 3px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>To Do App</h1>
-    </header>
+    <div class="Header_Div">
+        <header>
+            <h1>To Do App</h1>
+        </header>
+    </div>
     <main class="main">
         <div class="From">
             <form action="">
-                <input type="text" place>
+                <input type="text" placeholder="Enter Task">
+                <div class="BTN">
+                <button type="submit">Add Task</button>
+                <button type="reset">Reset</button>
+                </div>
             </form>
+        </div>
+
+        <div class="Parent_Tasks">
+            <!-- Tasks will be added here dynamically -->
         </div>
     </main>
     <script></script>
