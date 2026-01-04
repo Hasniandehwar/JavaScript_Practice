@@ -43,6 +43,7 @@
             padding: 5px;
             display: flex;
             align-items: center;
+            flex-direction: column;
             justify-content: center;
         }
         .From{
@@ -101,10 +102,72 @@
             transition: 0.3s ease-in-out;
 
         }
+        /* Dynmaic  */
+
+        .Parent_Tasks{
+            padding: 3px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            gap: 15px;
+        }
+        .Tasks{
+            background-color: rgb(30, 17, 72);
+            box-shadow: 3px 3px 10px white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .Task{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: large;
+            color: white;
+            width: 100%;
+            
+        }
+        .Buttons{
+            padding: 3px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+
+        }
+        .Buttons [type="save"]{
+            padding: 5px 10px;
+            background-color: rgb(9, 9, 224);
+            border: transparent;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        .Buttons [type="Edit"]{
+            padding: 5px 10px;
+            background-color: rgb(44, 115, 78);
+            border: transparent;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .Buttons [type="Complete"]{
+            padding: 5px 10px;
+            background-color: rgb(225, 17, 17);
+            border: transparent;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        .b:hover{
+            background-color: green;
+            color: white;
+            transition:.6s ease;
+        }
         @media (max-width:786px) {
         header{
             padding: 5px 10px;
-            border-radius: 5; 
+            border-radius: 5px; 
         }
         header h1{
             letter-spacing: 1px;
@@ -157,8 +220,73 @@
 
         <div class="Parent_Tasks">
             <!-- Tasks will be added here dynamically -->
+            <!-- <div class="Tasks">
+                <h4 class="Task">Hi Guys!</h4>
+                <div class="Buttons">
+                    <button type="save" class="b">Save</button>
+                    <button type="Edit" class="b">Edit</button>
+                    <button type="Complete" class="b">Complete</button>
+                </div>
+            </div> -->
+            
         </div>
     </main>
-    <script></script>
+    <script>
+        tasks=[];
+        let form = document.querySelector("form");
+        let input=document.querySelector("input");
+        let p=document.querySelector(".Parent_Tasks")
+        function Initial(){
+            getdata();
+        }
+        
+        form.addEventListener("submit" , (e)=>{
+            e.preventDefault();
+            tasks.unshift(input.value);
+            localStorage.setItem("tasks" , JSON.stringify(tasks));
+            //dynamic manipulation of elements
+            dynamic()
+            
+        })
+        function getdata(){
+            let data=localStorage.getItem("tasks");
+            let ne=JSON.parse(data);
+            return ne
+        }
+
+        function dynamic(){
+            let data=getdata();
+            p.innerHTML=""
+        data.forEach(ele => {
+                let div=document.createElement("div");
+            p.appendChild(div)
+            div.classList.add("Tasks")
+            let h4=document.createElement("h4");
+            div.appendChild(h4);
+            h4.classList.add("Task"); 
+            h4.textContent=`${ele}`
+            let div_btns=document.createElement("div");
+            div.appendChild(div_btns);
+            div_btns.classList.add("Buttons");
+            let btn_save=document.createElement("button");
+            btn_save.textContent="Save"
+            div_btns.appendChild(btn_save);
+            btn_save.setAttribute("type", "Save");
+            btn_save.classList.add("b")
+            let btn_edit=document.createElement("button");
+            btn_edit.textContent="Edit";
+            btn_edit.setAttribute("type" , "Edit");
+            btn_edit.classList.add("b")
+            div_btns.appendChild(btn_edit);
+            let btn_comp=document.createElement("button");
+            btn_comp.textContent="Complete"
+            btn_comp.setAttribute("type" , "Complete")
+            btn_comp.classList.add("b")
+            div_btns.appendChild(btn_comp); 
+            });
+        }
+
+
+</script>
 </body>
 </html>
