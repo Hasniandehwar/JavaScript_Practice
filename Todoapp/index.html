@@ -236,18 +236,23 @@
         let form = document.querySelector("form");
         let input=document.querySelector("input");
         let p=document.querySelector(".Parent_Tasks")
-        function Initial(){
-            getdata();
+        Initial();
+        function Initial() {
+       let stored = getdata();          // ✅ FLOW: fetch storage
+            if (stored) {
+                tasks = stored;              // ✅ FLOW: sync array
+                dynamic();                   // ✅ FLOW: render
+            }
         }
-        
-        form.addEventListener("submit" , (e)=>{
-            e.preventDefault();
-            tasks.unshift(input.value);
-            localStorage.setItem("tasks" , JSON.stringify(tasks));
-            //dynamic manipulation of elements
-            dynamic()
-            
-        })
+
+        form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        tasks.unshift(input.value);      // same logic
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        dynamic();                       // same
+    });
         function getdata(){
             let data=localStorage.getItem("tasks");
             let ne=JSON.parse(data);
@@ -257,6 +262,8 @@
         function dynamic(){
             let data=getdata();
             p.innerHTML=""
+
+            if (!data) return;  // ✅ FLOW: guard clause
         data.forEach(ele => {
                 let div=document.createElement("div");
             p.appendChild(div)
