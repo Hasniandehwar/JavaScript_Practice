@@ -1,4 +1,3 @@
 # JavaScript_Practice
-
-
-ProblemsFaced in Todoapp while getting data from localstroage and showing the stored data on the screen.
+This repository contains my JavaScript practice projects.
+I am learning core JavaScript concepts and building small projects.
