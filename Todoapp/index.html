@@ -124,6 +124,13 @@
             font-size: large;
             color: white;
             width: 100%;
+            line-height: 3px;
+            
+        }
+        .complete_h4{
+            text-decoration: line-through;
+            color: red;
+            text-rendering: geometricPrecision;
             
         }
         .Buttons{
@@ -134,17 +141,9 @@
             align-items: center;
 
         }
-        .Buttons [type="save"]{
-            padding: 5px 10px;
-            background-color: rgb(9, 9, 224);
-            border: transparent;
-            border-radius: 3px;
-            color: white;
-            cursor: pointer;
-        }
         .Buttons [type="Edit"]{
             padding: 5px 10px;
-            background-color: rgb(44, 115, 78);
+            background-color: rgb(211, 34, 34);
             border: transparent;
             border-radius: 3px;
             color: white;
@@ -153,7 +152,7 @@
 
         .Buttons [type="Complete"]{
             padding: 5px 10px;
-            background-color: rgb(225, 17, 17);
+            background-color:  rgb(44, 115, 78);
             border: transparent;
             border-radius: 3px;
             color: white;
@@ -163,6 +162,9 @@
             background-color: green;
             color: white;
             transition:.6s ease;
+        }
+        .b:active{
+            transform: scale(.5);
         }
         @media (max-width:786px) {
         header{
@@ -264,7 +266,7 @@
             p.innerHTML=""
 
             if (!data) return;  // ✅ FLOW: guard clause
-        data.forEach(ele => {
+        data.forEach((ele , index) => {
                 let div=document.createElement("div");
             p.appendChild(div)
             div.classList.add("Tasks")
@@ -275,11 +277,6 @@
             let div_btns=document.createElement("div");
             div.appendChild(div_btns);
             div_btns.classList.add("Buttons");
-            let btn_save=document.createElement("button");
-            btn_save.textContent="Save"
-            div_btns.appendChild(btn_save);
-            btn_save.setAttribute("type", "Save");
-            btn_save.classList.add("b")
             let btn_edit=document.createElement("button");
             btn_edit.textContent="Edit";
             btn_edit.setAttribute("type" , "Edit");
@@ -290,10 +287,44 @@
             btn_comp.setAttribute("type" , "Complete")
             btn_comp.classList.add("b")
             div_btns.appendChild(btn_comp); 
-            });
+            
+           btn_comp.addEventListener("click" , ()=>{
+                div.style.backgroundColor="green";
+                h4.classList.add("complete_h4");
+
+           });
+    btn_edit.addEventListener("click", () => {
+
+    if (btn_edit.textContent === "Edit") {
+        btn_edit.textContent = "Save";
+
+        let inputEdit = document.createElement("input");
+        inputEdit.type = "text";
+        inputEdit.value = h4.textContent;
+        inputEdit.style.width = "80%";
+
+        div.replaceChild(inputEdit, h4);
+        inputEdit.focus();
+
+    } else {
+        let inputEdit = div.querySelector("input");
+        let newValue = inputEdit.value.trim();
+
+        if (newValue === "") return;
+
+        tasks[index] = newValue;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+
+        h4.textContent = newValue;
+        div.replaceChild(h4, inputEdit);
+
+        btn_edit.textContent = "Edit";
+    }
+
+});
+            });   
         }
-
-
+        
 </script>
 </body>
 </html>
