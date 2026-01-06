@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+        .Inp{
+            margin: 20px;
+            padding: 15px;
+            background-color: black;
+            color: white;
+            width: fit-content;
+            border-radius: 10px;
+
+        }
+        .Inp input{
+            outline: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            box-shadow:2px 2px 15px white
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="Inp">
+        <label for="Name">Filter:</label>
+        <input type="text" name="Name" id="name">
+    </div>
+    
+    <div class="Card_p">
+        <div class="card">
+            <img src="#" alt="Hello">
+            <h3>Name:</h3>
+            <p>Followers:</p>
+            <p>Bio:</p>
+        </div>
+    </div>
+    <script type="module">
+      import users from "./data.js";
+      localStorage.setItem("users",JSON.stringify(users));
+      let input=document.getElementById("name");
+      let userss=JSON.parse(localStorage.getItem("users"));
+      input.addEventListener("input",(e)=>{
+        let value=e.target.value;
+        let filteredData=userss.filter((user)=>{
+            return user.name.toLowerCase().includes(value.toLowerCase());
+        });
+        
+        init(filteredData);
+        displayData(filteredData);
+    })
+    function init(filteredData){
+        displayData(filteredData);
+      }
+    function displayData(filteredData){
+        filteredData.forEach(element => {
+            const name=element.name;
+            const age=element.age;
+            const bio=element.bio;
+            const image=element.image;
+            const followers=element.followers;
+            console.log(name,age,bio,image,followers);
+        });
+    }
+
+    </script>
+</body>
+</html>
