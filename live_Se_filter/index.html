@@ -29,7 +29,71 @@
             padding: 10px;
             box-shadow:2px 2px 15px white
         }
+        .Card_p{
+            margin-left: 100px;
+            width: 80%;
+            height: auto;
+            padding:40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            
+        }
+        .card{
+            background-color: rgb(11, 28, 60);
+            width: 20%;
+            padding:10px;
+            border-radius: 5px;
+            box-shadow: 3px 3px 10px rgb(7, 234, 7);
+
+        }
+        .card:hover{
+            transition: transform 0.6s ease-in-out;
+            transform: scale(1.1);
+        }
+        .imge{
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .card img{
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px rgb(87, 84, 84);
+            color: white;
+
+        }
+        .Name{
+            color: rgb(9, 242, 110);
+            font-size: large;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-align: center;
+            
+        }
+        .Fo{
+            color: whitesmoke;
+        }
+        .Bio{
+            font-family: 'Courier New', Courier, monospace;
+            color: rgb(67, 253, 5);
+            margin-left: 5px;
+        }
         
+        @media (max-width : 786px) {
+            
+
+            .card{
+            background-color: rgb(11, 28, 60);
+            width: 25%;
+            padding:10px;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        }
+
     </style>
 </head>
 <body>
@@ -37,43 +101,72 @@
         <label for="Name">Filter:</label>
         <input type="text" name="Name" id="name">
     </div>
-    
     <div class="Card_p">
-        <div class="card">
-            <img src="#" alt="Hello">
-            <h3>Name:</h3>
-            <p>Followers:</p>
-            <p>Bio:</p>
-        </div>
     </div>
     <script type="module">
       import users from "./data.js";
-      localStorage.setItem("users",JSON.stringify(users));
+      let main=document.querySelector(".Card_p")
       let input=document.getElementById("name");
-      let userss=JSON.parse(localStorage.getItem("users"));
       input.addEventListener("input",(e)=>{
         let value=e.target.value;
-        let filteredData=userss.filter((user)=>{
+        let filteredData=users.filter((user)=>{
             return user.name.toLowerCase().includes(value.toLowerCase());
         });
+        renderCards(filteredData);
+         
         
-        init(filteredData);
-        displayData(filteredData);
-    })
-    function init(filteredData){
-        displayData(filteredData);
-      }
-    function displayData(filteredData){
-        filteredData.forEach(element => {
-            const name=element.name;
-            const age=element.age;
-            const bio=element.bio;
-            const image=element.image;
-            const followers=element.followers;
-            console.log(name,age,bio,image,followers);
-        });
-    }
+     });
+     function renderCards(data) {
+    main.textContent = "";
 
+    data.forEach(element => {
+        const { name, bio, image, followers } = element;
+
+        let div_cards = document.createElement("div");
+        div_cards.classList.add("card");
+
+        let div_image = document.createElement("div");
+        div_image.classList.add("imge");
+
+        let img = document.createElement("img");
+        img.src = image;
+        div_image.appendChild(img);
+
+        div_cards.appendChild(div_image);
+
+        let div_info = document.createElement("div");
+        div_info.classList.add("Des");
+
+        let h3 = document.createElement("h3");
+        h3.classList.add("Name");
+        h3.textContent = name;
+
+        let follower = document.createElement("p");
+        follower.classList.add("Fo");
+        follower.textContent = `Followers ${followers}`;
+
+        let Bi = document.createElement("p");
+        Bi.classList.add("Bio");
+        Bi.textContent = bio;
+
+        div_info.append(h3, follower, Bi);
+        div_cards.appendChild(div_info);
+        main.appendChild(div_cards);
+    });
+}
+        renderCards(users);
+    
+    
+    // // <div class="card">
+    //         <div class="imge">
+    //         <img src="1765696572565.JPG" alt="Hello" >
+    //         </div>
+    //         <div class="Des">
+    //         <h3 class="Name">Name:</h3>
+    //         <p class="Fo">Followers:</p>
+    //         <p class="Bio">Bio:</p>
+    //         </div>
+    //     </div>
     </script>
 </body>
 </html>
