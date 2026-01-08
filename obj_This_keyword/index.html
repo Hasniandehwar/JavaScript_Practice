@@ -231,47 +231,53 @@
                 this.renderui();
             },
             renderui:function(){
-                Cards_parent.innerHTML="";
-                this.users.forEach((user)=>{
-                    console.log(user)
-        //             <div class="Card">
-        //     <div class="Image">
-        //         <img src="download.jpg" alt="Profile">
-        //     </div>
-        //     <div class="text_item">
-        //         <h4>Hi</h4>
-        //         <h5>Hasnain</h5>
-        //         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab exercitationem sapiente consectetur assumenda, officiis molestias rerum praesentium quos voluptatem asperiores temporibus placeat sed sint dolore, nesciunt voluptatibus ipsam reprehenderit quibusdam?</p>
-        //     </div>
-        // </div> -->
-                let div=document.createElement("div");
-                div.classList.add("Card");
-                let image_div=document.createElement("div");
-                image_div.classList.add("Image");
-                div.appendChild(image_div);
-                let image=document.createElement("img");
-                image.setAttribute("src", user.Picture);
-                image.setAttribute("alt" , "profile");
-                image_div.appendChild(image);
-                let text_div=document.createElement("div");
-                text_div.classList.add("text_item");
-                div.appendChild(text_div);
-                let h4=document.createElement("h4");
-                text_div.appendChild(h4);
-                h4.textContent=user.Name;
-                let h5=document.createElement("h5");
-                text_div.appendChild(h5);
-                h5.textContent=user.Role;
-                let p=document.createElement("p");                
-                text_div.appendChild(p);
-                p.textContent=user.Bio;
+            Cards_parent.innerHTML = "";
 
+    this.users.forEach((user, index) => {
 
-                Cards_parent.appendChild(div)
-                })
-            },
-            removeuser:function(){},
+        let div = document.createElement("div");
+        div.classList.add("Card");
 
+        let image_div = document.createElement("div");
+        image_div.classList.add("Image");
+        div.appendChild(image_div);
+
+        let image = document.createElement("img");
+        image.src = user.Picture;
+        image.alt = "profile";
+        image_div.appendChild(image);
+
+        let text_div = document.createElement("div");
+        text_div.classList.add("text_item");
+        div.appendChild(text_div);
+
+        let h4 = document.createElement("h4");
+        h4.textContent = user.Name;
+        text_div.appendChild(h4);
+
+        let h5 = document.createElement("h5");
+        h5.textContent = user.Role;
+        text_div.appendChild(h5);
+
+        let p = document.createElement("p");
+        p.textContent = user.Bio;
+        text_div.appendChild(p);
+
+        // 🔥 CLICK TO REMOVE
+        div.addEventListener("click", () => {
+            this.removeuser(index);
+        });
+
+        Cards_parent.appendChild(div);
+        
+
+    });
+    },
+    removeuser:function(index){
+                this.users.splice(index,1);
+                this.renderui();
+      
+},
         }
 
         usersmanager.init()
