@@ -1,65 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Management System</title>
-    <link rel="stylesheet" href="src/style/style .css">
+  <meta charset="UTF-8">
+  <title>Student Management (Mini CRUD)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Segoe UI, Tahoma, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:linear-gradient(135deg,#1d2671,#c33764);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .app{
+      background:#fff;
+      width:100%;
+      max-width:650px;
+      border-radius:12px;
+      padding:25px 30px;
+      box-shadow:0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    h2{
+      text-align:center;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    form{
+      display:flex;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    form input{
+      flex:1;
+      padding:10px 12px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      outline:none;
+    }
+
+    form button{
+      padding:10px 18px;
+      background:#1d2671;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    thead{
+      background:#f4f4f4;
+    }
+
+    th, td{
+      padding:10px;
+      border-bottom:1px solid #ddd;
+      text-align:left;
+      font-size:14px;
+    }
+
+    .delete-btn{
+      background:#c33764;
+      color:#fff;
+      border:none;
+      padding:6px 10px;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:13px;
+    }
+
+    .empty{
+      text-align:center;
+      margin-top:15px;
+      color:#777;
+      font-size:14px;
+    }
+  </style>
 </head>
-<body class="Body">
-    <header class="header">
-        <div class="Logo">
-            <img src="src/Images/Blue White Circle Modern Math Club Logo.png" alt="School_logo" class="Imageh">
-        </div>
-        <nav class="nav">
-                <button class="bTN C">Contact Us</button>
-                <button class="bTN About">About </button>
-                <button class="bTN Login">Login</button>
-                <button class="bTN Signup">Signup</button>
-        </nav>
-    </header>
-    <main class="main">
-        <div class="Form">
-            <form action="" class="form">
-                <div class="Stu_input">
-                    <label for="StudentName">Student Name:</label>
-                    <input type="text" name="StudentName" id="StudentName" placeholder="Name" class="inp">
-                    <label for="Father_name">Father Name:</label>
-                    <input type="text" name="Father_name" id="Father" placeholder="Father Name" class="inp">
-                </div>
+<body>
 
-                <div class="Class">
-                    <label for="Choose">Choose Class</label>
-                    <select name="Choose" id="Chooses">
-                        <option  selected disabled>Choose Class</option>
-                        <option value="1">Class 1</option>
-                        <option value="2">Class 2</option>
-                        <option value="3">Class 3</option>
-                    </select>
-                </div>
-                <button type="submit" class="Submit">Submit Form</button>
-            </form>
-        </div>
-        <div class="Intro">
-            <div class="Image">
-                <img src="src/Images/Blue White Circle Modern Math Club Logo.png" alt="School">
-            </div>
-            <div class="School_intro">
-                <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, exercitationem labore maiores, corporis beatae saepe reiciendis ea incidunt nostrum vitae distinctio inventore, nam fuga excepturi obcaecati eaque neque explicabo accusantium.</p>
-            </div>
-        </div>
+  <div class="app">
+    <h2>Student Management (Mini CRUD)</h2>
 
-       <div class="Card">
-        // <div class="View">
-        //     <h1 class="Heading">Name: </h1>
-        //     <h2 class="F">Father Name: </h2>
-        //     <h2 class="C">Class : </h2>
-        // </div> 
-       </div> 
-    </main>
-    <footer>
-        <h4></h4>
-    </footer>
-     <script src="Scripts/app_main.js"></script>
+    <form id="studentForm">
+      <input type="text" id="name" placeholder="Student Name">
+      <input type="text" id="roll" placeholder="Roll No">
+      <button type="submit">Add</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Roll No</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="studentTable">
+        <!-- JS will insert rows here -->
+      </tbody>
+    </table>
+
+    <div class="empty" id="emptyMsg">
+      No students added yet
+    </div>
+  </div>
+
+  <!-- YOUR JavaScript goes here -->
+  <!-- <script src="app.js"></script> -->
+<script src="Scripts/app_main.js"></script>
 </body>
 </html>
