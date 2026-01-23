@@ -27,7 +27,6 @@ function addStudent(name, roll) {
 
 
 // Function to render the UI
-
 function RenderUI(students){
     tableBody.innerHTML = "";
     if (students.length === 0) {
