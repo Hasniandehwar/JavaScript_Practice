@@ -45,3 +45,24 @@ body {
 .header_container{
     border-bottom: 1px solid white;
 }
+.side_bar{
+    background: var(--bg-reverse);
+    height: 84vh;
+    border-right: 1px solid white;
+}
+
+.btn{
+   background-color: #00bf72;
+   color: white;
+}
+.btn:hover {
+    background-color: #a8eb12;
+    border-color: #a8eb12;
+    color: white;
+    transform: scale(1.05); /* optional zoom effect */
+    transition: 0.4s;       /* smooth effect */
+}
+.div{
+    background-color: #00bf72;
+    border: 2px solid white;
+}
