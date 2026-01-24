@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com');
+:root{
+    --bg-gradient: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );  
+  
+   --bg-reverse: linear-gradient(
+    to right top,
+    #008793,
+  
+   
+    #004d7a
+    
+  ); 
+}
+body {
+    min-height: 100vh;
+    background-image: var(--bg-gradient);
+}
+#Div{
+    background:var(--bg-reverse);   
+    
+}
+.bi{
+    font-size: 35px;
+    margin-right: 10px;
+    color: white;
+    cursor: pointer;
+
+}
+.bi:hover{
+    transform: scale(1.5);
+    transition: all 1s;
+}
+.heading{
+    color: #a8eb12;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.header_container{
+    border-bottom: 1px solid white;
+}
