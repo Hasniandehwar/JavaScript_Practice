@@ -20,14 +20,64 @@
     </header>
 
     <main class="container-fluid">
-        <div class="row d-flex">
-            <section class="d-none d-md-block d-lg-block col-lg-2 col-md-3 side_bar">
-                <div class="d-flex flex-row flex-md-column justify-content-sm-evenly gap-3 mt-3 ms-5 mb-4" id="btns">
-                         <button class="btn">Expense</button>
-                        <button class="btn">View Exp</button>
-                        <button class="btn">Monthly Report</button>
-                </div>
+       <div class="container mt-3">
+          <div class="row justify-content-center">
+                 <div class="col-12 col-md-6">
+                     <div class="border border-white p-4 rounded">
+                            <h1 class="text-white text-center mb-4">Budget Form</h1>
 
+                            <form id="form_budget">
+                                <!-- Budget Name -->
+                                <div class="mb-3">
+                                <label for="Budget_Date" class="form-label text-white">
+                                Monthly Budget date
+                                </label>
+                            <input
+                            type="date"
+                            class="form-control"
+                            id="Budget_Date"
+                            placeholder="Enter budget name"
+                            required
+                            >
+                            </div>
+
+                        <!-- Budget Amount -->
+                        <div class="mb-4">
+                            <label for="Budget_amount" class="form-label text-white">
+                            Amount
+                            </label>
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="Budget_amount"
+                            placeholder="Enter amount"
+                            required
+                            >
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success" id="Submit">
+                            Add Budget
+                            </button>
+                        </div>
+                        </form>
+
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+        <div class="row d-flex d-none">
+            <section class="d-none d-md-block d-lg-block col-lg-2 col-md-3 side_bar col-sm-7">
+                <div class="d-flex flex-sm-row flex-md-column flex-wrap gap-3 mt-3 ms-2 mb-4" id="btns">
+                        <button class="btn flex-sm-fill">Expense</button>
+                        <button class="btn flex-sm-fill">View Exp</button>
+                        <button class="btn flex-sm-fill">Monthly Report</button>
+                        <button class="btn flex-sm-fill">Add Expense</button>
+                        <button class="btn flex-sm-fill">Add Budget</button>
+                </div>
             </section> 
             <div class="col-md-7 col-lg-9 div ms-md-3 ms-p-3 mt-3 border rounded-3">
                 <div class="contaioner mt-2">
@@ -65,7 +115,7 @@
                             <div class="row card">
                                     <div class="col-sm-12 col-md-12 d-lg-block text-center">
                                         <h1 class="text">Saving</h1>
-                                        <i class="bi bi-cash "></i>
+                                        <i class="bi bi-cash"></i>
                                     </div>
                                 </div>
                         </div>

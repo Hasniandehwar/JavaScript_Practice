@@ -14,8 +14,9 @@ menuicon.addEventListener("click" , ()=>{
         side_bar.className = "d-none  d-md-block d-lg-block col-lg-2 col-md-3 side_bar";
         div.className = "col-md-7 col-lg-9 div ms-md-3 ms-p-3 mt-3 border rounded-3";
         menuicon.className="d-lg-none d-md-none bi bi-list";
-  }
-    
+  }  
 })
+// form handling 
+const Submitbtn=document.querySelector("#Submit")
 
-
+const total_budget=0;
