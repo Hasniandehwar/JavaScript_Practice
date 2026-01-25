@@ -24,7 +24,6 @@ body {
 }
 #Div{
     background:var(--bg-reverse);   
-    
 }
 .bi{
     font-size: 35px;
@@ -37,6 +36,13 @@ body {
     transform: scale(1.5);
     transition: all 1s;
 }
+.ani{
+    transition: all 1s;
+}
+.side{
+    display: flex;
+    justify-content: center;
+}
 .heading{
     color: #a8eb12;
     margin-left: 20px;
@@ -47,10 +53,9 @@ body {
 }
 .side_bar{
     background: var(--bg-reverse);
-    height: 84vh;
+    height: fit-content;
     border-right: 1px solid white;
 }
-
 .btn{
    background-color: #00bf72;
    color: white;
@@ -65,4 +70,31 @@ body {
 .div{
     background-color: #00bf72;
     border: 2px solid white;
+}
+.text{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+}
+.bi-cash{
+    font-size: 30px;
+    color: #09f201;
+}
+.text{
+    color: #09f201;
+    font-size: 2rem;
+}
+
+.card{
+    padding: 15px;
+    box-shadow: 5px 5px 20px  rgb(190, 9, 172);
+    
+}
+
+.card:hover{
+    background-color: #004d7a;
+    color: white;       
+    transform: scale(1.1);
+    transition: all .8s;
+    cursor: pointer;
+
 }
