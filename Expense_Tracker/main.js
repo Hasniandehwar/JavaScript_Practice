@@ -16,59 +16,54 @@ menuicon.addEventListener("click" , ()=>{
         menuicon.className="d-lg-none d-md-none bi bi-list";
   }  
 })
-// form handling 
-const Submitbtn=document.querySelector("#Submit");
-const BudgetInput=document.querySelector("#Budget_amount");
-const budgetDate=document.querySelector("#Budget_Date");
-const form=document.querySelector("#form_budget");
-const total_budget=0;
+// Form handling
+const Submitbtn = document.querySelector("#Submit");
+const BudgetInput = document.querySelector("#Budget_amount");
+const budgetDate = document.querySelector("#Budget_Date");
+const form = document.querySelector("#form_budget");
 
-// form Event Submit arrow function
-form.addEventListener("submit" , (e)=>{
+const div_date = document.querySelector("#Budget_Date_div");
+const div_amount = document.querySelector("#Budget_amount_div");
+
+const small = document.createElement("small");
+small.className = "mt-3 ms-2 text-white";
+small.style.display = "none";
+div_date.appendChild(small);
+
+const small2 = document.createElement("small");
+small2.className = "mt-3 ms-2 text-white";
+small2.style.display = "none";
+div_amount.appendChild(small2);
+
+let dateTimeout;
+let amountTimeout;
+
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // form validation 
-        // Elements that indicate when from fileds are not valid
-    const div=document.querySelector("#Budget_Date_div");
-    const div_amount=document.querySelector("#Budget_amount")
-    const small=document.createElement("small");
-    small.className="mt-3 ms-2 text-white"
-    const small2 = document.createElement("small");
-    small2.className = "mt-3 ms-2 text-white";
-    // regexes
-    const dateRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/;
-    const amountRegex = /^(?:[1-9]\d{3,9})$/;
-    const testdate=dateRegex.test(budgetDate.value);
-    const testamount=amountRegex.test(BudgetInput.value);
 
-    let dateTimeout;
-    let amountTimeout;
+    const testdate = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/.test(budgetDate.value);
+    const testamount = /^(?:[1-9]\d{3,9})$/.test(BudgetInput.value);
 
-    if (!testdate) {
-        div.appendChild(small);
+    // DATE validation
+    if (testdate) {
+        small.innerText = "Please Choose a Valid Date (MM/DD/YYYY)";
         small.style.display = "block";
-        small.innerText = "Please Choose";
-
-        clearTimeout(dateTimeout);
-        dateTimeout = setTimeout(() => {
+        setTimeout(() => {
             small.style.display = "none";
-        }, 1000);
-    } else {
-        clearTimeout(dateTimeout);
-        small.style.display = "none";
+        }, 5000);
     }
 
-    if (!testamount) {
-        div_amount.appendChild(small2);
-        small2.style.display = "block";
+    // AMOUNT validation
+    if (testamount) {
         small2.innerText = "Please Enter Amount Greater Than 1000";
-
-        clearTimeout(amountTimeout);
-        amountTimeout = setTimeout(() => {
-        small2.style.display = "none";
-        }, 1000);
-    } else {
-        clearTimeout(amountTimeout);
-        small2.style.display = "none";
+        small2.style.display = "block";
+        setTimeout(() => {
+            small2.style.display = "none";
+        }, 5000);
     }
 
-})
+    if (testdate && testamount) {
+        alert("Form Submitted!");
+        form.reset();
+    }
+});
