@@ -16,6 +16,7 @@ menuicon.addEventListener("click" , ()=>{
         menuicon.className="d-lg-none d-md-none bi bi-list";
   }  
 })
+// Form for Adding Budget
 // Form handling
 const Submitbtn = document.querySelector("#Submit");
 const BudgetInput = document.querySelector("#Budget_amount");
@@ -26,44 +27,27 @@ const div_date = document.querySelector("#Budget_Date_div");
 const div_amount = document.querySelector("#Budget_amount_div");
 
 const small = document.createElement("small");
-small.className = "mt-3 ms-2 text-white";
-small.style.display = "none";
+small.className = "mt-3 ms-2 text-white d-none";
 div_date.appendChild(small);
 
 const small2 = document.createElement("small");
-small2.className = "mt-3 ms-2 text-white";
-small2.style.display = "none";
+small2.className = "mt-3 ms-2 text-white d-none";
 div_amount.appendChild(small2);
 
-let dateTimeout;
-let amountTimeout;
+let Budgetamount = 0;
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    const testdate = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/.test(budgetDate.value);
-    const testamount = /^(?:[1-9]\d{3,9})$/.test(BudgetInput.value);
-
-    // DATE validation
-    if (testdate) {
-        small.innerText = "Please Choose a Valid Date (MM/DD/YYYY)";
-        small.style.display = "block";
-        setTimeout(() => {
-            small.style.display = "none";
-        }, 5000);
-    }
-
-    // AMOUNT validation
-    if (testamount) {
-        small2.innerText = "Please Enter Amount Greater Than 1000";
-        small2.style.display = "block";
-        setTimeout(() => {
-            small2.style.display = "none";
-        }, 5000);
-    }
-
-    if (testdate && testamount) {
-        alert("Form Submitted!");
-        form.reset();
-    }
+    const value = Number(BudgetInput.value);
+    if ((value >= 1000)) {
+        Budgetamount += value;
+        console.log(Budgetamount);
+        alert("Budget Amount Added")
+    }else{
+        small2.textContent = "Amount must be at least 1000";
+        small2.className="d-flex text-white";
+        setTimeout(()=>{
+            small2.className="d-none";
+        } , 3000);
+    } 
 });
