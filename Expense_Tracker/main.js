@@ -65,7 +65,7 @@ form.addEventListener("submit", (e) => {
 const Add_Budget_btn=document.querySelector("#Add_Budget");
 const Main_div_=document.querySelector("#Main_div");
 const Form_container=document.querySelector("#Form_container");
-const popcontainer=document.querySelector(".popcontainer")
+const popcontainer=document.querySelector(".popup")
 Add_Budget_btn.addEventListener("click" , ()=>{
     Add_Budget();
 });
@@ -77,8 +77,8 @@ function Add_Budget(){
 
 function returnHomepage(){
     setTimeout(()=>{
-        Main_div_.classList.remove("d-none");
-        popcontainer.classList.add("d-none");
+        Main_div_.classList.toggle("d-none");
+        popcontainer.classList.toggle("d-none");
     }, 500);
 }
 
