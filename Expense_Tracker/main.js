@@ -42,15 +42,13 @@ form.addEventListener("submit", (e) => {
     if ((value >= 1000)) {
         const modu=document.querySelector(".popup")
         Budgetamount += value;
-        console.log(Budgetamount);
         setTimeout(()=>{
             setTimeout(()=>{
                 Form_container.classList.add("d-none")
-            } , 100)
+            } ,10)
             
             modu.classList.remove("d-none");  
         }, 500)
-        // page return to Dash
     }else{
         small2.textContent = "Amount must be at least 1000";
         small2.className="d-flex text-white";
