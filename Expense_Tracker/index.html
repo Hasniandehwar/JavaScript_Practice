@@ -12,14 +12,14 @@
     <header class="container-fluid  header_container">
         <div class="row" id="Div">
             <div class="col-sm-12  mt-sm-0 mt-lg-3 p-sm-3 d-flex">
-                    <i class="bi bi-list d-lg-none d-md-none"></i>                    
+                    <i class="bi bi-list d-lg-none d-md-none" id="Menuicon"></i>                    
                     <h1 class="heading text-sm-center text-lg-start flex-grow-1">ExpenseTracker</h1>
             </div>
         </div>
     </header>
 
     <main class="container-fluid">
-       <div class="container mt-3">
+       <div class="container mt-3 d-none" id="Form_container">
           <div class="row justify-content-center">
                  <div class="col-12 col-md-6">
                      <div class="border border-white p-4 rounded">
@@ -68,14 +68,14 @@
                 </div>
             </div>
 
-        <div class="row d-flex d-none">
+        <div class="row d-flex" id="Main_div">
             <section class="d-none d-md-block d-lg-block col-lg-2 col-md-3 side_bar col-sm-7">
                 <div class="d-flex flex-sm-row flex-md-column flex-wrap gap-3 mt-3 ms-2 mb-4" id="btns">
                         <button class="btn flex-sm-fill">Expense</button>
                         <button class="btn flex-sm-fill">View Exp</button>
                         <button class="btn flex-sm-fill">Monthly Report</button>
                         <button class="btn flex-sm-fill">Add Expense</button>
-                        <button class="btn flex-sm-fill">Add Budget</button>
+                        <button class="btn flex-sm-fill" id="Add_Budget">Add Budget</button>
                 </div>
             </section> 
             <div class="col-md-7 col-lg-9 div ms-md-3 ms-p-3 mt-3 border rounded-3">
@@ -122,6 +122,19 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-sm text-center popcontainer">
+            <div class="row text-center d-none popup">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">Budegt Added Successfully<h2>
+                            <button class="btn btn-success ok">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
     <script src="main.js"></script>
