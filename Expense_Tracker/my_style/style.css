@@ -84,17 +84,21 @@ body {
     font-size: 2rem;
 }
 
-.card{
+.card_main{
     padding: 15px;
     box-shadow: 5px 5px 20px  rgb(190, 9, 172);
     
 }
 
-.card:hover{
+.card_main:hover{
     background-color: #004d7a;
     color: white;       
     transform: scale(1.1);
     transition: all .8s;
     cursor: pointer;
 
+}
+
+.c:hover{
+    cursor: pointer;
 }

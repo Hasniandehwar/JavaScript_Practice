@@ -66,6 +66,7 @@ const Add_Budget_btn=document.querySelector("#Add_Budget");
 const Main_div_=document.querySelector("#Main_div");
 const Form_container=document.querySelector("#Form_container");
 const popcontainer=document.querySelector(".popup");
+const card_text=document.querySelector(".card_text");
 Add_Budget_btn.addEventListener("click" , ()=>{
     Add_Budget();
 });
@@ -81,8 +82,7 @@ function returnHomepage(){
         Budget_text.textContent=`BudGet ${"Rs" + " " + Budgetamount}`
         Main_div_.classList.toggle("d-none");
         popcontainer.classList.toggle("d-none");
-         div_cont.classList.toggle("d-none");
-
+        div_cont.classList.toggle("d-none");
     }, 500);
 }
 
@@ -92,4 +92,47 @@ ok_btn_popup.addEventListener("click" , ()=>{
     returnHomepage();
 })
 
+
+// Expense Form
+const form_expense=document.querySelector("#form_expense");
+const Expense_amount=document.querySelector("#Expense_amount");
+const expense_type=document.querySelector("#expense_type");
+const add_expense=document.querySelector("#add_expense");
+const Form_conatiner_exp=document.querySelector("#Form_conatiner_exp");
+//showing deatils
+
+const expenceamount=document.querySelector(".expenceamount")
+const total_budget=document.querySelector(".total_budget");
+const Remaing=document.querySelector(".Remaing")
+
+form_expense.addEventListener("submit" , function(e){
+    e.preventDefault();  
+    let type=expense_type.value;
+    let amount=Expense_amount.value;
+    let obj={
+        amount,
+        type
+    }
+    expense(obj)
+})
+function expense(obj){
+    expenceamount.textContent=`Expence : ${obj.type}`;
+    total_budget.textContent=`Amount : ${obj.amount}`;
+    Remaing.textContent=`Amount Remaning in budget : ${Budgetamount-=amount}`
+
+}
+add_expense.addEventListener("click" , ()=>{
+    display_form();
+    expense();
+})
+function display_form(){
+    Main_div_.classList.toggle("d-none");
+    Form_conatiner_exp.classList.toggle("d-none");
+}
+
+const checked_btn=document.querySelector(".checked");
+checked_btn.addEventListener("click" , ()=>{
+    Form_conatiner_exp.classList.toggle("d-none");
+    Main_div_.classList.toggle("d-none");
+})
 
