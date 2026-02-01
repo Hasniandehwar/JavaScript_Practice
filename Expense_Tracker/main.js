@@ -1,3 +1,5 @@
+const Budget_text=document.querySelector(".text");
+ui()
 const menuicon=document.querySelector("#Menuicon");
 const side_bar=document.querySelector(".side_bar")
 const div=document.querySelector(".div");
@@ -9,7 +11,6 @@ menuicon.addEventListener("click" , ()=>{
         side_bar.className="d-flex  d-md-block d-lg-block col-lg-2 col-md-3 side_bar";
         div.className="col-md-7 col-lg-9 div ms-md-3 ms-p-3 mt-3 border rounded-3"
         menuicon.className="bi bi-x d-lg-none";
-        column.className="flex-row";
     } else{
         side_bar.className = "d-none  d-md-block d-lg-block col-lg-2 col-md-3 side_bar";
         div.className = "col-md-7 col-lg-9 div ms-md-3 ms-p-3 mt-3 border rounded-3";
@@ -38,10 +39,15 @@ let Budgetamount=0;
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    ui();
     const value = Number(BudgetInput.value);
     if ((value >= 1000)) {
         const modu=document.querySelector(".popup")
-        Budgetamount += value;
+        let Budgetamount_l=get_bud();
+        
+        Budgetamount_l+= value;
+        budget(Budgetamount_l)
+        ui()
         setTimeout(()=>{
             setTimeout(()=>{
                 Form_container.classList.add("d-none")
@@ -50,6 +56,7 @@ form.addEventListener("submit", (e) => {
             
             modu.classList.remove("d-none");  
         }, 500)
+        
     }else{
         small2.textContent = "Amount must be at least 1000";
         small2.className="d-flex text-white";
@@ -59,9 +66,17 @@ form.addEventListener("submit", (e) => {
     }
 
 });
-
+function budget(Budgetamount){
+    Budgetamount_=JSON.stringify(Budgetamount);
+    localStorage.setItem("budgetamount" , Budgetamount_)
+}
+function get_bud(){
+    const amount_=localStorage.getItem("budgetamount");
+    let realbudget=JSON.parse(amount_)
+    return realbudget;   
+}
 // Add_Budget BTN
-const Budget_text=document.querySelector(".text");
+// const Budget_text=document.querySelector(".text");
 const Add_Budget_btn=document.querySelector("#Add_Budget");
 const Main_div_=document.querySelector("#Main_div");
 const Form_container=document.querySelector("#Form_container");
@@ -74,12 +89,15 @@ Add_Budget_btn.addEventListener("click" , ()=>{
 function Add_Budget(){
     Form_container.classList.remove("d-none");
     Main_div_.classList.toggle("d-none");
-
+    ui()
 }
-
+function ui(){
+        let lc=get_bud();
+        Budget_text.textContent=`BudGet ${"Rs" + " " + lc}`;
+}
 function returnHomepage(){
     setTimeout(()=>{
-        Budget_text.textContent=`BudGet ${"Rs" + " " + Budgetamount}`
+        
         Main_div_.classList.toggle("d-none");
         popcontainer.classList.toggle("d-none");
         div_cont.classList.toggle("d-none");
@@ -90,6 +108,7 @@ function returnHomepage(){
 const ok_btn_popup=document.querySelector(".ok");
 ok_btn_popup.addEventListener("click" , ()=>{
     returnHomepage();
+    ui()
 })
 
 
@@ -101,29 +120,24 @@ const add_expense=document.querySelector("#add_expense");
 const Form_conatiner_exp=document.querySelector("#Form_conatiner_exp");
 //showing deatils
 
-const expenceamount=document.querySelector(".expenceamount")
-const total_budget=document.querySelector(".total_budget");
-const Remaing=document.querySelector(".Remaing")
-
+const expenceamount=document.querySelector(".amount")
+const total_budget=document.querySelector(".total_Amount");
+const Remaing=document.querySelector(".Remaing");
+const div_container=document.querySelector("#cont")
 form_expense.addEventListener("submit" , function(e){
     e.preventDefault();  
+    div_container.classList.toggle("d-none")
     let type=expense_type.value;
     let amount=Expense_amount.value;
     let obj={
         amount,
         type
-    }
-    expense(obj)
-})
-function expense(obj){
-    expenceamount.textContent=`Expence : ${obj.type}`;
-    total_budget.textContent=`Amount : ${obj.amount}`;
-    Remaing.textContent=`Amount Remaning in budget : ${Budgetamount-=amount}`
+    };
+    expense(obj);
 
-}
+})
 add_expense.addEventListener("click" , ()=>{
     display_form();
-    expense();
 })
 function display_form(){
     Main_div_.classList.toggle("d-none");
@@ -134,5 +148,15 @@ const checked_btn=document.querySelector(".checked");
 checked_btn.addEventListener("click" , ()=>{
     Form_conatiner_exp.classList.toggle("d-none");
     Main_div_.classList.toggle("d-none");
+    div_container.classList.toggle("d-none");
 })
+
+function expense(obj){
+    total_budget.textContent=`Amount : ${obj.amount}`;
+    expenceamount.textContent=`Expence : ${obj.type}`;
+    let Actual_amount=get_bud();
+    Remaing.textContent=`Amount Remaning in budget : ${Actual_amount-=obj.amount}`
+    budget(Actual_amount);
+    ui()
+}
 
