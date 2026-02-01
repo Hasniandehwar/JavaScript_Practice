@@ -74,7 +74,7 @@
                         <button class="btn flex-sm-fill active text-white">Expense</button>
                         <button class="btn flex-sm-fill">View Exp</button>
                         <button class="btn flex-sm-fill">Monthly Report</button>
-                        <button class="btn flex-sm-fill">Add Expense</button>
+                        <button class="btn flex-sm-fill" id="add_expense">Add Expense</button>
                         <button class="btn flex-sm-fill" id="Add_Budget">Add Budget</button>
                 </div>
             </section> 
@@ -136,6 +136,63 @@
             </div>
 
         </div>
+
+        <div class="container mt-3 d-none" id="Form_conatiner_expense">
+          <div class="row justify-content-center">
+                 <div class="col-12 col-md-6">
+                     <div class="border border-white p-4 rounded">
+                            <h1 class="text-white text-center mb-4">Add Expense</h1>
+
+                            <form id="form_expense">
+                                <div class="mb-3" id="Expense_amount">
+                                <label for="Expense_amount" class="form-label text-white">
+                                Amount
+                                </label>
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="Expense_amount"
+                            placeholder="Enter Amount"
+                            required
+                            >
+                            </div>
+
+                       <div class="mb-4" id="Drop_down">
+                       <label for="expense_type" class="form-label text-white">
+                               Expense Type
+                       </label>
+                       <select
+                           class="form-select"
+                           id="expense_type"
+                           required
+                       >
+                           <option value="" selected disabled>Choose expense</option>
+                           <option value="school_fee">School Fee</option>
+                           <option value="home_expense">Home Monthly Expense</option>
+                           <option value="electricity_bill">Electricity Bill</option>
+                           <option value="gas_bill">Gas Bill</option>
+                           <option value="internet_bill">Internet Bill</option>
+                           <option value="transport">Transport</option>
+                           <option value="food">Food</option>
+                           <option value="medical">Medical</option>
+                           <option value="other">Other</option>
+                       </select>
+                    </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success" id="Submit">
+                            Add Expense
+                            </button>
+                        </div>
+                        </form>
+
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
     </main>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

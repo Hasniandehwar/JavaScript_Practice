@@ -33,8 +33,8 @@ div_date.appendChild(small);
 const small2 = document.createElement("small");
 small2.className = "mt-3 ms-2 text-white d-none";
 div_amount.appendChild(small2);
-
-let Budgetamount = 0;
+const div_cont=document.querySelector(".div");
+let Budgetamount=0;
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -45,6 +45,7 @@ form.addEventListener("submit", (e) => {
         setTimeout(()=>{
             setTimeout(()=>{
                 Form_container.classList.add("d-none")
+                div_cont.classList.toggle("d-none");
             } ,10)
             
             modu.classList.remove("d-none");  
@@ -60,10 +61,11 @@ form.addEventListener("submit", (e) => {
 });
 
 // Add_Budget BTN
+const Budget_text=document.querySelector(".text");
 const Add_Budget_btn=document.querySelector("#Add_Budget");
 const Main_div_=document.querySelector("#Main_div");
 const Form_container=document.querySelector("#Form_container");
-const popcontainer=document.querySelector(".popup")
+const popcontainer=document.querySelector(".popup");
 Add_Budget_btn.addEventListener("click" , ()=>{
     Add_Budget();
 });
@@ -71,12 +73,16 @@ Add_Budget_btn.addEventListener("click" , ()=>{
 function Add_Budget(){
     Form_container.classList.remove("d-none");
     Main_div_.classList.toggle("d-none");
+
 }
 
 function returnHomepage(){
     setTimeout(()=>{
+        Budget_text.textContent=`BudGet ${"Rs" + " " + Budgetamount}`
         Main_div_.classList.toggle("d-none");
         popcontainer.classList.toggle("d-none");
+         div_cont.classList.toggle("d-none");
+
     }, 500);
 }
 
@@ -85,3 +91,5 @@ const ok_btn_popup=document.querySelector(".ok");
 ok_btn_popup.addEventListener("click" , ()=>{
     returnHomepage();
 })
+
+
