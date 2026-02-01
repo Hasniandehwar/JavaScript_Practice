@@ -1,3 +1,4 @@
+const div_u=document.querySelector("#Used")
 const Budget_text=document.querySelector(".text");
 ui()
 const menuicon=document.querySelector("#Menuicon");
@@ -73,7 +74,7 @@ function budget(Budgetamount){
 function get_bud(){
     const amount_=localStorage.getItem("budgetamount");
     let realbudget=JSON.parse(amount_)
-    return realbudget;   
+    return Number(realbudget);   
 }
 // Add_Budget BTN
 // const Budget_text=document.querySelector(".text");
@@ -82,6 +83,7 @@ const Main_div_=document.querySelector("#Main_div");
 const Form_container=document.querySelector("#Form_container");
 const popcontainer=document.querySelector(".popup");
 const card_text=document.querySelector(".card_text");
+
 Add_Budget_btn.addEventListener("click" , ()=>{
     Add_Budget();
 });
@@ -94,6 +96,9 @@ function Add_Budget(){
 function ui(){
         let lc=get_bud();
         Budget_text.textContent=`BudGet ${"Rs" + " " + lc}`;
+        let us=get_use_a();
+        div_u.textContent=`Expences Rs: ${" " + us}`
+
 }
 function returnHomepage(){
     setTimeout(()=>{
@@ -119,7 +124,6 @@ const expense_type=document.querySelector("#expense_type");
 const add_expense=document.querySelector("#add_expense");
 const Form_conatiner_exp=document.querySelector("#Form_conatiner_exp");
 //showing deatils
-
 const expenceamount=document.querySelector(".amount")
 const total_budget=document.querySelector(".total_Amount");
 const Remaing=document.querySelector(".Remaing");
@@ -152,11 +156,27 @@ checked_btn.addEventListener("click" , ()=>{
 })
 
 function expense(obj){
-    total_budget.textContent=`Amount : ${obj.amount}`;
+
+    total_budget.textContent=`Amount : ${Number(obj.amount)}`;
     expenceamount.textContent=`Expence : ${obj.type}`;
     let Actual_amount=get_bud();
-    Remaing.textContent=`Amount Remaning in budget : ${Actual_amount-=obj.amount}`
-    budget(Actual_amount);
+    Remaing.textContent=`Amount Remaning in budget : ${Actual_amount-= Number(obj.amount)}`
+    let get_used=get_use_a();
+    get_used=get_used+Number(obj.amount);
+    set_use_amount(get_used)
+    budget( Number(Actual_amount));
     ui()
 }
 
+function set_use_amount(amountused=40){
+
+    let j=JSON.stringify(amountused)
+    localStorage.setItem("amountused" , j)
+    
+}
+
+function get_use_a(){
+    const a_D=localStorage.getItem("amountused");
+    let Used_amount=JSON.parse(a_D)
+    return Number(Used_amount);
+}
