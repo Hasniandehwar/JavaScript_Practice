@@ -47,7 +47,7 @@ form.addEventListener("submit", (e) => {
         let Budgetamount_l=get_bud();
         
         Budgetamount_l+= value;
-        budget(Budgetamount_l)
+        budget(Budgetamount_l);
         ui()
         setTimeout(()=>{
             setTimeout(()=>{
@@ -68,13 +68,23 @@ form.addEventListener("submit", (e) => {
 
 });
 function budget(Budgetamount){
-    Budgetamount_=JSON.stringify(Budgetamount);
-    localStorage.setItem("budgetamount" , Budgetamount_)
+    if(Budgetamount<0){
+    }else{
+        Budgetamount_=JSON.stringify(Budgetamount);
+        localStorage.setItem("budgetamount" , Budgetamount_)
+    }
+    
 }
 function get_bud(){
     const amount_=localStorage.getItem("budgetamount");
     let realbudget=JSON.parse(amount_)
-    return Number(realbudget);   
+    if (realbudget<=0){
+        return 0;
+    }
+    else{
+        return Number(realbudget); 
+    }
+      
 }
 // Add_Budget BTN
 // const Budget_text=document.querySelector(".text");
@@ -91,7 +101,7 @@ Add_Budget_btn.addEventListener("click" , ()=>{
 function Add_Budget(){
     Form_container.classList.remove("d-none");
     Main_div_.classList.toggle("d-none");
-    ui()
+    ui();
 }
 function ui(){
         let lc=get_bud();
@@ -138,7 +148,7 @@ form_expense.addEventListener("submit" , function(e){
         type
     };
     expense(obj);
-
+    View_expences(obj)
 })
 add_expense.addEventListener("click" , ()=>{
     display_form();
@@ -156,20 +166,23 @@ checked_btn.addEventListener("click" , ()=>{
 })
 
 function expense(obj){
-
+    let get_used=get_use_a();
     total_budget.textContent=`Amount : ${Number(obj.amount)}`;
     expenceamount.textContent=`Expence : ${obj.type}`;
     let Actual_amount=get_bud();
-    Remaing.textContent=`Amount Remaning in budget : ${Actual_amount-= Number(obj.amount)}`
-    let get_used=get_use_a();
-    get_used=get_used+Number(obj.amount);
-    set_use_amount(get_used)
-    budget( Number(Actual_amount));
-    ui()
-}
-
-function set_use_amount(amountused=40){
-
+    if (Actual_amount<=0 || obj.amount > Actual_amount){
+       
+        Remaing.innerHTML="Not enough Balance";
+    }
+    else{
+        Remaing.textContent=`Amount Remaning in budget : ${Actual_amount-= Number(obj.amount)}`
+        get_used=get_used+Number(obj.amount);
+        set_use_amount(get_used);
+        budget(Number(Actual_amount));
+        ui();
+    }
+    }
+function set_use_amount(amountused){
     let j=JSON.stringify(amountused)
     localStorage.setItem("amountused" , j)
     
@@ -177,6 +190,19 @@ function set_use_amount(amountused=40){
 
 function get_use_a(){
     const a_D=localStorage.getItem("amountused");
-    let Used_amount=JSON.parse(a_D)
+    let Used_amount=JSON.parse(a_D);
     return Number(Used_amount);
+}
+
+
+let Expence_array=[];
+function View_expences(obj){
+    Expence_array.unshift(obj);
+    localStorage.setItem("Data" , JSON.stringify(Expence_array));
+}
+
+
+function get_View_expence(){
+    let rawdata=localStorage.getItem("Data");
+    let newarr=JSON.parse(rawdata);
 }

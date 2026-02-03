@@ -83,13 +83,11 @@ body {
     color: #09f201;
     font-size: 2rem;
 }
-
 .card_main{
     padding: 15px;
     box-shadow: 5px 5px 20px  rgb(190, 9, 172);
     
 }
-
 .card_main:hover{
     background-color: #004d7a;
     color: white;       
@@ -98,7 +96,6 @@ body {
     cursor: pointer;
 
 }
-
 .c:hover{
     cursor: pointer;
 }
