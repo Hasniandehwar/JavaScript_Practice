@@ -6,6 +6,7 @@ const side_bar=document.querySelector(".side_bar")
 const div=document.querySelector(".div");
 const column=document.querySelector("#cloumn")
 const btns=document.querySelector("#btns")
+const table=document.querySelector(".con_table");
 menuicon.addEventListener("click" , ()=>{
     
     if (menuicon.classList.contains("bi-list")){
@@ -49,6 +50,7 @@ form.addEventListener("submit", (e) => {
         Budgetamount_l+= value;
         budget(Budgetamount_l);
         ui()
+
         setTimeout(()=>{
             setTimeout(()=>{
                 Form_container.classList.add("d-none")
@@ -101,6 +103,8 @@ Add_Budget_btn.addEventListener("click" , ()=>{
 function Add_Budget(){
     Form_container.classList.remove("d-none");
     Main_div_.classList.toggle("d-none");
+    table.classList.toggle("d-none");
+    console.log("hi")
     ui();
 }
 function ui(){
@@ -116,6 +120,7 @@ function returnHomepage(){
         Main_div_.classList.toggle("d-none");
         popcontainer.classList.toggle("d-none");
         div_cont.classList.toggle("d-none");
+        table.classList.toggle("d-none");
     }, 500);
 }
 
@@ -148,7 +153,8 @@ form_expense.addEventListener("submit" , function(e){
         type
     };
     expense(obj);
-    View_expences(obj)
+    View_expences(obj);
+    TableUI();
 })
 add_expense.addEventListener("click" , ()=>{
     display_form();
@@ -156,6 +162,7 @@ add_expense.addEventListener("click" , ()=>{
 function display_form(){
     Main_div_.classList.toggle("d-none");
     Form_conatiner_exp.classList.toggle("d-none");
+    table.classList.toggle("d-none");
 }
 
 const checked_btn=document.querySelector(".checked");
@@ -163,6 +170,7 @@ checked_btn.addEventListener("click" , ()=>{
     Form_conatiner_exp.classList.toggle("d-none");
     Main_div_.classList.toggle("d-none");
     div_container.classList.toggle("d-none");
+    table.classList.toggle("d-none");
 })
 
 function expense(obj){
@@ -187,22 +195,52 @@ function set_use_amount(amountused){
     localStorage.setItem("amountused" , j)
     
 }
-
 function get_use_a(){
     const a_D=localStorage.getItem("amountused");
     let Used_amount=JSON.parse(a_D);
     return Number(Used_amount);
 }
 
+let Expence_array = [];
 
-let Expence_array=[];
-function View_expences(obj){
-    Expence_array.unshift(obj);
-    localStorage.setItem("Data" , JSON.stringify(Expence_array));
+function View_expences(obj) {
+    let data = get_View_expence();   // load existing data
+    data.unshift(obj);
+    localStorage.setItem("Data", JSON.stringify(data));
+}
+
+function get_View_expence() {
+    let rawdata = localStorage.getItem("Data");
+
+    if (rawdata === null) {
+        Expence_array = [];
+    } else {
+        Expence_array = JSON.parse(rawdata);
+    }
+
+    return Expence_array;
+}
+
+function TableUI() {
+    let arr = get_View_expence();
+    let table_body = document.querySelector(".table_body");
+
+    table_body.innerHTML = "";
+
+    arr.forEach((data, index) => {
+        table_body.innerHTML += `
+            <tr>
+                <th scope="row">${index + 1}</th>
+                <td>${data.amount}</td>
+                <td>${data.type}</td>
+            </tr>
+        `;
+    });
 }
 
 
-function get_View_expence(){
-    let rawdata=localStorage.getItem("Data");
-    let newarr=JSON.parse(rawdata);
+function initiatl(){
+    TableUI()
 }
+
+initiatl()

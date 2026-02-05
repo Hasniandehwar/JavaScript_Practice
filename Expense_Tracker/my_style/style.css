@@ -99,3 +99,8 @@ body {
 .c:hover{
     cursor: pointer;
 }
+
+.row_table{
+    margin-top: 20px;
+    padding: 5px;
+}
