@@ -238,7 +238,6 @@ function TableUI() {
     });
 }
 
-
 function initiatl(){
     TableUI()
 }
