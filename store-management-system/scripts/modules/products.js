@@ -1,7 +1,7 @@
 import { dataBase_ls } from "../core/storage.js";
 class Products {
 
-    addProduct(obj) {
+    addProduct(obj) { // tested
         const products = dataBase_ls.getData("products");
         const marketcode = "SBM" + Date.now();
 
@@ -24,7 +24,7 @@ class Products {
         return dataBase_ls.getData("products");
     }
 
-    DeleteProduct(marketcode) {
+    DeleteProduct(marketcode) { // tested
         const products = dataBase_ls.getData("products");
         const updatedProducts = products.filter(p => p.marketcode !== marketcode);
         dataBase_ls.setData("products", updatedProducts);
