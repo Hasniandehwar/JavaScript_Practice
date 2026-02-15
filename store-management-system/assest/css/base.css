@@ -1,82 +1,27 @@
-/* # Reset, variables, common styles */
-/* Reset some default styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* 
+ *  base css file for the project
+ *  contains all the basic styles and resets
+ *  also imports google fonts
+ * 
+ */
+@import url('https://fonts.googleapis.com');
+:root{
+    --background-color:#0de062;
+    --text-heading-color:#ffffff;
+
 }
 
-
-/* # Login Page Styles */
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #56ab2f, #a8e063);
+.body_lg_page{
+     background: var(--background-color);
 }
-
-.login-container {
-    width: 100%;
-    max-width: 400px;
-}
-
-.login-box {
-    background: #fff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
-}
-
-.login-box h2 {
-    margin-bottom: 25px;
-    color: #333;
-}
-
-.input-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
+.header{
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-heading-color);
     font-weight: bold;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.input-group input:focus {
-    border-color: #56ab2f;
-}
-
-.login-btn {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #56ab2f;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-btn:hover {
-    background: #3a7d14;
-}
-
-.error-msg {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
+.dashboard_body{
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
 }

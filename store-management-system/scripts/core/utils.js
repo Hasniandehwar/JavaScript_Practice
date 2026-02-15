@@ -2,7 +2,7 @@
 import { dataBase_ls } from "../core/storage.js";
 // Signup/login validation
 function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(String(email).toLowerCase());
 }
 
@@ -52,6 +52,10 @@ function Loginvalidate(email, password) {
     }
 }
 
+function toggle_from(element){
+      element.Login_Section_From.classList.toggle("d-none");
+      element.Signup_Section_From.classList.toggle("d-none");
+};
 /// export utils
 
-export {Signupvalidate, Loginvalidate,};
+export {Signupvalidate, Loginvalidate , toggle_from};

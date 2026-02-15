@@ -1,1 +1,13 @@
 /* # Layout (navbar, sidebar, grid) */
+
+.header_Loginpage{
+    margin: 20px 0;
+    text-align: center;
+}
+
+.main_dahboard{
+    height: 90vh;
+    width: 95vw;
+    margin-top: 20px;
+    background-color: white;
+}

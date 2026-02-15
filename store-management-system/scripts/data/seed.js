@@ -11,3 +11,4 @@ const products = (() => {
     return data; // this will be assigned to 'products'
 })();
 ;
+
