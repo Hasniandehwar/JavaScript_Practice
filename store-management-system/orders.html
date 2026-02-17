@@ -1,0 +1,48 @@
+<!-- test-storage.html -->
+<!-- # Main dashboard -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assest/css/base.css">
+    <link rel="stylesheet" href="assest/css/components.css">
+    <link rel="stylesheet" href="./assest/css/layout.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ </head>
+ <body class="dashboard_body">
+   <main class="main_dahboard d-flex p-3 gap-2">
+      <aside class="d-flex flex-column aside_dash algin-item-center  p-3 w-25" >
+         <div class="name text-center p-2">
+            <h1> <em style="color: green; letter-spacing: 3px;">X</em>tech</h1>
+         </div>
+         <div class="btns d-flex flex-column align-items-start  h-100 mt-3 p-3 ">
+
+               <button class="btn btn-success  mb-3 w-100 " id="Dash_btn">Dashboard</button>
+               <button class="btn btn-success  mb-3 w-100 active" id="orders_btn">Orders</button>
+               <button class="btn btn-success  mb-3 w-100 " id="products_btn">Products</button>
+
+               <!-- Manage Store -->
+               <button class="btn btn-success  mb-2 w-100" id="Manage_store">Manage Store</button>
+
+               <!-- Sub Menu -->
+               <div class="d-flex flex-column align-items-center  btn_div p-3 collapse-box"id="btns_Drop">
+                     <button class="btn btn-outline-success mb-2 w-100">Products CRUD</button>
+                     <button class="btn btn-outline-success w-100">Details</button>
+      </div>
+         </div>
+      </aside>
+      <section class="section_dashboard  p-4 w-100">
+         
+      </section>
+   </main>
+   
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+   <script type="module" src="./scripts/data/seed.js"></script>
+   <script type="module" src="./scripts/pages/order.page.js"></script>
+ </body>
+ </html>
+
+

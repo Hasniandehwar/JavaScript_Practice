@@ -1,13 +1,25 @@
 /* # Layout (navbar, sidebar, grid) */
 
+:root{
+    --background-color:#0de062;
+    --text-heading-color:#ffffff;
+
+}
 .header_Loginpage{
     margin: 20px 0;
     text-align: center;
 }
 
 .main_dahboard{
-    height: 90vh;
+    height: 96vh;
     width: 95vw;
     margin-top: 20px;
     background-color: white;
+}
+
+
+.board{
+    height: 50vh;
+    border: 2px solid var(--background-color);
+    border-radius: 5px;
 }

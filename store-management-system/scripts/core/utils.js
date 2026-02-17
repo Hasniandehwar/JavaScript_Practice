@@ -56,6 +56,11 @@ function toggle_from(element){
       element.Login_Section_From.classList.toggle("d-none");
       element.Signup_Section_From.classList.toggle("d-none");
 };
-/// export utils
+// manage store btns
+function toggle_Dash_btns(element){
+    element.classList.toggle("show");
+}
 
-export {Signupvalidate, Loginvalidate , toggle_from};
+
+/// export utils
+export {Signupvalidate, Loginvalidate , toggle_from , toggle_Dash_btns};
