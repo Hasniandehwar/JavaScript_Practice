@@ -22,4 +22,15 @@
     height: 50vh;
     border: 2px solid var(--background-color);
     border-radius: 5px;
+    height: fit-content;
+}
+
+.P_card{
+    padding: 5px;
+}
+
+.card_p{
+    border-radius: 5px;
+    border: 1px solid rgb(194, 194, 194);
+    margin-top: 5px;
 }
