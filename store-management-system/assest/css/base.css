@@ -80,3 +80,10 @@
     border-top: 2px solid var(--background-color);
     border-bottom: 2px solid var(--background-color);
 }
+
+.orders{
+    color: yellowgreen;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: 3rem;
+}

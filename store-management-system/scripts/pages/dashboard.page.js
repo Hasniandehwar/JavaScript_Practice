@@ -59,3 +59,24 @@ orders_btn.addEventListener("click", ()=>{
 Dash_btn.addEventListener("click", ()=>{
     window.location.href="./dashboard.html";
 });
+
+
+//  Select Product manage
+let Product_manage_btn=document.querySelector("#Product");
+let section_dashboard=document.querySelector(".Div2");
+let Chart_section=document.querySelector(".board")
+let Details=document.querySelector("#details")
+
+
+
+Product_manage_btn.addEventListener("click" , ()=>{
+            section_dashboard.classList.toggle("d-none");
+            Chart_section.classList.toggle("d-none");
+            
+});
+
+Details.addEventListener("click" , ()=>{
+            section_dashboard.classList.toggle("d-none");
+            Chart_section.classList.toggle("d-none");
+})
+

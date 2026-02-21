@@ -34,3 +34,9 @@
     border: 1px solid rgb(194, 194, 194);
     margin-top: 5px;
 }
+
+.table_head{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: silver;
+}

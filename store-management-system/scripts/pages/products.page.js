@@ -27,3 +27,20 @@ Dash_btn.addEventListener("click", ()=>{
     window.location.href="./dashboard.html";
 });
 
+
+let Product_manage_btn=document.querySelector("#Product");
+let section_dashboard=document.querySelector(".Div2");
+let Details=document.querySelector("#details")
+
+
+
+Product_manage_btn.addEventListener("click" , ()=>{
+            section_dashboard.classList.toggle("d-none");
+            
+            
+});
+
+Details.addEventListener("click" , ()=>{
+            section_dashboard.classList.toggle("d-none");
+           
+})
