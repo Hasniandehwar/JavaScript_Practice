@@ -40,7 +40,6 @@
 
 
 .row_con{
-    
     height: 80%;
 }
 .watch {
@@ -49,24 +48,13 @@
     font-weight: bold;
     color: white;                   
     background: #111;                 
-    border: 2px solid #00ff00;       
-    width: 40%;                   
-    padding: 10px;
+    border: 2px solid #00ff00;                    
     text-align: center;
     letter-spacing: 2px;             
 }
 
-.btns{
-    display: grid;
-    height: 50px;
-    place-content: center;
-    place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
-}
 
-.btn_w{
-    width: 100px;
-    padding: 10px 20px; 
-    cursor: pointer;
+.row_co{
+    height: 100px;
 }
