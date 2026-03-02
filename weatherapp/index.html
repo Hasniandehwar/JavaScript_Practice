@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="body">
+
+    <div class="container cont justify-content-center align-item-center">
+        <div class="row mt-5 ms-2 me-2 row_con d-flex f-column ">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <h1 class="watch " id="time"></h1>
+            </div>
+            
+            <div class="btns">
+                <button class="btn_w  btn btn-primary" id="start">Start</button>
+                <button class="btn_w btn btn-danger" id="stop">Stop</button>
+                <button class="btn_w btn btn-success" id="reset">Reset</button>
+
+            </div>
+        </div>
+    </div>  
+
+    <script>
+        let text = document.querySelector("#time");
+    const startbtn = document.querySelector("#start");
+const stopbtn = document.querySelector("#stop");
+const resetbtn = document.querySelector("#reset");
+text.textContent=`00:00:00:000`;
+let hours = 0;
+let minutes = 0;
+let seconds = 0;
+let milliseconds = 0;
+let interval;
+startbtn.addEventListener("click", () => {
+    if (!interval) {
+        interval = setInterval(() => {
+            milliseconds += 10;
+
+            if (milliseconds === 1000) {
+                milliseconds = 0;
+                seconds += 1;
+            }
+            if (seconds === 60) {
+                seconds = 0;
+                minutes += 1;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours += 1;
+            }
+
+            let h = hours.toString().padStart(2, '0');
+            let m = minutes.toString().padStart(2, '0');
+            let s = seconds.toString().padStart(2, '0');
+            let ms = milliseconds.toString().padStart(2,'0');
+
+            text.textContent = `${h}:${m}:${s}:${ms}`;
+        }, 10)
+    }
+});
+
+
+stopbtn.addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
+});
+resetbtn.addEventListener("click", () => {
+    clearInterval(interval);
+    interval = null;
+    hours = 0;
+    minutes = 0;
+    seconds = 0;
+    milliseconds = 0;
+    text.textContent = `00:00:00:000`;
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

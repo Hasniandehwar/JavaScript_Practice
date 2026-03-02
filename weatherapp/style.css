@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+     font-family:"Sofia", sans-serif;
+     background-color: black;
+}
+.cont{
+    position: relative;
+    margin: 40px 15px;
+    height: 85vh;
+    background: #111;
+    border: 2px solid white;
+    border-radius: 5px;
+    animation: borderanimation 4s ease-in-out  infinite;
+}
+
+@keyframes borderanimation {
+    0%{
+        border-color: white;
+    }
+    10%{
+        border-color: red;
+    }
+    45%{
+        border-color: greenyellow;
+    }
+    75%{
+        border-color: pink;
+    }
+    100%{
+        border-color: yellow;
+    }
+}
+
+
+.row_con{
+    
+    height: 80%;
+}
+.watch {
+    font-family:  monospace;  
+    font-size: 50px;                  
+    font-weight: bold;
+    color: white;                   
+    background: #111;                 
+    border: 2px solid #00ff00;       
+    width: 40%;                   
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 2px;             
+}
+
+.btns{
+    display: grid;
+    height: 50px;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.btn_w{
+    width: 100px;
+    padding: 10px 20px; 
+    cursor: pointer;
+}
