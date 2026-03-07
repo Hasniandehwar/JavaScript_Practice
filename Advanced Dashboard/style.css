@@ -1,0 +1,185 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.aside_AdminPanel{
+    background-color: rgba(42 , 63, 120,1);
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 125vh;
+    
+}
+
+.logo{
+    display: flex ;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255 , 0.08);
+    width: 100%;
+    padding: 20px 0px;
+    margin-bottom: 50px;
+}
+.logo i{
+    color: white;
+    font-size: 2rem;
+}
+
+.logo h5{
+    margin-top: 14px;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.list li {
+    margin: 10px 0;
+}
+.list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;         
+    padding: 10px;         
+    cursor: pointer;
+    border-radius: 5px;  
+    transition: background 0.3s;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+.list-item i {
+    margin-left: 25px;
+    font-size: 20px;
+    color: white;
+}
+
+.main{
+    width: 100%;
+}
+.list-item p {
+    font-size: 18px;
+    color: white;
+    margin: 0;          
+    font-weight: 500;
+}
+
+.upper-div{
+    border-bottom: 1px solid #100f0f;
+    border-radius:4px;
+}
+
+.Total_rev{
+    position: relative;
+    background: linear-gradient(135deg, #db9fb6 , #764ba2);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+.Total_orders{
+    position: relative;
+    background: linear-gradient(135deg , #1da014 ,  #43d439 ) ;
+    color: white;
+    border-radius:12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+
+.Users{
+    position: relative;
+    background: linear-gradient(135deg , #db9fb6 ,  #ca136f ) ;
+    color: white;
+    border-radius:12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.Products{
+    position: relative;
+   background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius:12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.Car{
+    transition: transform 0.3s;
+}
+.Car:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 2px 2px 10px gray;
+}
+
+
+
+
+.chart-box{
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(153, 151, 151);
+    
+}
+
+.pie-container{
+    width: 200px;
+    margin: 40px auto;
+    
+    
+}
+.heading{
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+
+}
+
+#salesChart{
+    margin-top: 20px;
+}
+
+.text_cards{
+    color: gray;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.thead{
+    border: 1px solid gray;
+    background-color: gray;
+}
+
+.heading_s p{
+    font-size: 19px;
+    font-weight: 700;
+}   
